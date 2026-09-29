@@ -1,0 +1,485 @@
+{
+  "environment": {
+    "python": "3.12.3",
+    "machine": "x86_64",
+    "runtime_s": 45.2,
+    "quick": false
+  },
+  "traffic": {
+    "train": 3354,
+    "validation": 1331,
+    "test": 3362,
+    "test_mix": {
+      "honest": 2617,
+      "confused": 263,
+      "attack": 318,
+      "in_scope_fraud": 164
+    }
+  },
+  "costs": {
+    "margin": 0.25,
+    "decline_friction_eur": 2.0,
+    "step_up_abandon": 0.12,
+    "step_up_eur": 0.3,
+    "chargeback_eur": 15.0,
+    "step_up_stops_attack": 0.95,
+    "step_up_stops_ato": 0.4,
+    "dispute_share": 0.35
+  },
+  "engines": {
+    "card_era_model": {
+      "thresholds": {
+        "step_up_at": 0.05,
+        "decline_at": 0.85
+      },
+      "cost_eur_per_1000": 5827.476591314694,
+      "attack_approved_rate": 0.0,
+      "attack_value_approved_eur": 0.0,
+      "honest_approved_rate": 0.0011463507833397019,
+      "honest_declined_rate": 0.0011463507833397019,
+      "confused_approved_rate": 0.0,
+      "latency_us_p50": 217.69200009202905,
+      "latency_us_p99": 326.5288700163182,
+      "by_class": {
+        "attack": {
+          "n": 318,
+          "approve": 0.0,
+          "step_up": 0.9622641509433962,
+          "decline": 0.03773584905660377
+        },
+        "attack/agent_mismatch": {
+          "n": 32,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/expired": {
+          "n": 29,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/forged_signature": {
+          "n": 22,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/giftcard_insert": {
+          "n": 23,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/merchant_swap": {
+          "n": 20,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/qty_inflate": {
+          "n": 25,
+          "approve": 0.0,
+          "step_up": 0.96,
+          "decline": 0.04
+        },
+        "attack/replay": {
+          "n": 36,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/split_spend": {
+          "n": 102,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/tampered_limit": {
+          "n": 29,
+          "approve": 0.0,
+          "step_up": 0.6206896551724138,
+          "decline": 0.3793103448275862
+        },
+        "confused": {
+          "n": 263,
+          "approve": 0.0,
+          "step_up": 0.973384030418251,
+          "decline": 0.026615969581749048
+        },
+        "confused/over_budget": {
+          "n": 90,
+          "approve": 0.0,
+          "step_up": 0.9222222222222223,
+          "decline": 0.07777777777777778
+        },
+        "confused/over_qty": {
+          "n": 91,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "confused/wrong_category": {
+          "n": 82,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "honest": {
+          "n": 2617,
+          "approve": 0.0011463507833397019,
+          "step_up": 0.9977072984333206,
+          "decline": 0.0011463507833397019
+        },
+        "honest/in_scope": {
+          "n": 1863,
+          "approve": 0.0010735373054213634,
+          "step_up": 0.998389694041868,
+          "decline": 0.0005367686527106817
+        },
+        "honest/replay_original": {
+          "n": 36,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "honest/split_first": {
+          "n": 34,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "honest/substitution": {
+          "n": 236,
+          "approve": 0.0,
+          "step_up": 0.9957627118644068,
+          "decline": 0.00423728813559322
+        },
+        "honest/two_carts": {
+          "n": 448,
+          "approve": 0.002232142857142857,
+          "step_up": 0.9955357142857143,
+          "decline": 0.002232142857142857
+        },
+        "in_scope_fraud": {
+          "n": 164,
+          "approve": 0.0,
+          "step_up": 0.3170731707317073,
+          "decline": 0.6829268292682927
+        },
+        "in_scope_fraud/account_takeover": {
+          "n": 164,
+          "approve": 0.0,
+          "step_up": 0.3170731707317073,
+          "decline": 0.6829268292682927
+        }
+      }
+    },
+    "delegation_checks_only": {
+      "thresholds": {
+        "step_up_at": 1.0,
+        "decline_at": 1.0
+      },
+      "cost_eur_per_1000": 7631.326442593695,
+      "attack_approved_rate": 0.34024896265560167,
+      "attack_value_approved_eur": 20884.78,
+      "honest_approved_rate": 1.0,
+      "honest_declined_rate": 0.0,
+      "confused_approved_rate": 0.0,
+      "latency_us_p50": 40.013999978327774,
+      "latency_us_p99": 91.33817994779731,
+      "by_class": {
+        "attack": {
+          "n": 318,
+          "approve": 0.0,
+          "step_up": 0.5345911949685535,
+          "decline": 0.46540880503144655
+        },
+        "attack/agent_mismatch": {
+          "n": 32,
+          "approve": 0.0,
+          "step_up": 0.0,
+          "decline": 1.0
+        },
+        "attack/expired": {
+          "n": 29,
+          "approve": 0.0,
+          "step_up": 0.0,
+          "decline": 1.0
+        },
+        "attack/forged_signature": {
+          "n": 22,
+          "approve": 0.0,
+          "step_up": 0.0,
+          "decline": 1.0
+        },
+        "attack/giftcard_insert": {
+          "n": 23,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/merchant_swap": {
+          "n": 20,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/qty_inflate": {
+          "n": 25,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/replay": {
+          "n": 36,
+          "approve": 0.0,
+          "step_up": 0.0,
+          "decline": 1.0
+        },
+        "attack/split_spend": {
+          "n": 102,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/tampered_limit": {
+          "n": 29,
+          "approve": 0.0,
+          "step_up": 0.0,
+          "decline": 1.0
+        },
+        "confused": {
+          "n": 263,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "confused/over_budget": {
+          "n": 90,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "confused/over_qty": {
+          "n": 91,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "confused/wrong_category": {
+          "n": 82,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "honest": {
+          "n": 2617,
+          "approve": 1.0,
+          "step_up": 0.0,
+          "decline": 0.0
+        },
+        "honest/in_scope": {
+          "n": 1863,
+          "approve": 1.0,
+          "step_up": 0.0,
+          "decline": 0.0
+        },
+        "honest/replay_original": {
+          "n": 36,
+          "approve": 1.0,
+          "step_up": 0.0,
+          "decline": 0.0
+        },
+        "honest/split_first": {
+          "n": 34,
+          "approve": 1.0,
+          "step_up": 0.0,
+          "decline": 0.0
+        },
+        "honest/substitution": {
+          "n": 236,
+          "approve": 1.0,
+          "step_up": 0.0,
+          "decline": 0.0
+        },
+        "honest/two_carts": {
+          "n": 448,
+          "approve": 1.0,
+          "step_up": 0.0,
+          "decline": 0.0
+        },
+        "in_scope_fraud": {
+          "n": 164,
+          "approve": 1.0,
+          "step_up": 0.0,
+          "decline": 0.0
+        },
+        "in_scope_fraud/account_takeover": {
+          "n": 164,
+          "approve": 1.0,
+          "step_up": 0.0,
+          "decline": 0.0
+        }
+      }
+    },
+    "layered": {
+      "thresholds": {
+        "step_up_at": 0.15,
+        "decline_at": 0.5499999999999999
+      },
+      "cost_eur_per_1000": 1718.7672516359316,
+      "attack_approved_rate": 0.03319502074688797,
+      "attack_value_approved_eur": 2170.53,
+      "honest_approved_rate": 0.9912113106610623,
+      "honest_declined_rate": 0.005349636988918609,
+      "confused_approved_rate": 0.0,
+      "latency_us_p50": 277.24350002245046,
+      "latency_us_p99": 427.4088100373772,
+      "by_class": {
+        "attack": {
+          "n": 318,
+          "approve": 0.0,
+          "step_up": 0.5251572327044025,
+          "decline": 0.4748427672955975
+        },
+        "attack/agent_mismatch": {
+          "n": 32,
+          "approve": 0.0,
+          "step_up": 0.0,
+          "decline": 1.0
+        },
+        "attack/expired": {
+          "n": 29,
+          "approve": 0.0,
+          "step_up": 0.0,
+          "decline": 1.0
+        },
+        "attack/forged_signature": {
+          "n": 22,
+          "approve": 0.0,
+          "step_up": 0.0,
+          "decline": 1.0
+        },
+        "attack/giftcard_insert": {
+          "n": 23,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/merchant_swap": {
+          "n": 20,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/qty_inflate": {
+          "n": 25,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "attack/replay": {
+          "n": 36,
+          "approve": 0.0,
+          "step_up": 0.0,
+          "decline": 1.0
+        },
+        "attack/split_spend": {
+          "n": 102,
+          "approve": 0.0,
+          "step_up": 0.9705882352941176,
+          "decline": 0.029411764705882353
+        },
+        "attack/tampered_limit": {
+          "n": 29,
+          "approve": 0.0,
+          "step_up": 0.0,
+          "decline": 1.0
+        },
+        "confused": {
+          "n": 263,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "confused/over_budget": {
+          "n": 90,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "confused/over_qty": {
+          "n": 91,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "confused/wrong_category": {
+          "n": 82,
+          "approve": 0.0,
+          "step_up": 1.0,
+          "decline": 0.0
+        },
+        "honest": {
+          "n": 2617,
+          "approve": 0.9912113106610623,
+          "step_up": 0.003439052350019106,
+          "decline": 0.005349636988918609
+        },
+        "honest/in_scope": {
+          "n": 1863,
+          "approve": 0.9919484702093397,
+          "step_up": 0.003757380568974772,
+          "decline": 0.0042941492216854536
+        },
+        "honest/replay_original": {
+          "n": 36,
+          "approve": 1.0,
+          "step_up": 0.0,
+          "decline": 0.0
+        },
+        "honest/split_first": {
+          "n": 34,
+          "approve": 0.9705882352941176,
+          "step_up": 0.0,
+          "decline": 0.029411764705882353
+        },
+        "honest/substitution": {
+          "n": 236,
+          "approve": 0.9788135593220338,
+          "step_up": 0.00847457627118644,
+          "decline": 0.012711864406779662
+        },
+        "honest/two_carts": {
+          "n": 448,
+          "approve": 0.9955357142857143,
+          "step_up": 0.0,
+          "decline": 0.004464285714285714
+        },
+        "in_scope_fraud": {
+          "n": 164,
+          "approve": 0.0975609756097561,
+          "step_up": 0.054878048780487805,
+          "decline": 0.8475609756097561
+        },
+        "in_scope_fraud/account_takeover": {
+          "n": 164,
+          "approve": 0.0975609756097561,
+          "step_up": 0.054878048780487805,
+          "decline": 0.8475609756097561
+        }
+      }
+    }
+  },
+  "conformance": {
+    "protocols": [
+      "chain",
+      "order",
+      "session"
+    ],
+    "attempts": 3362,
+    "decision_agreement": 1.0,
+    "roundtrip_exact": 1.0
+  }
+}
