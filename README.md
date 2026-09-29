@@ -19,6 +19,23 @@ All traffic, keys, merchants and shoppers are synthetic. The protocol adapters a
 | **Stack** | Python 3.11+, NumPy, scikit-learn, FastAPI; about 800 lines of package code |
 | **Reproduce** | `python run_eval.py`: 45 s on one CPU core, regenerates `results/results.json` and `results/report.html` |
 
+## Tech stack
+
+| Layer | Technology | Used for |
+|---|---|---|
+| Language | Python 3.11+ | Everything; dataclasses for mandates, carts, checkouts and decisions |
+| Cryptography | Python `hmac`, `hashlib` (HMAC-SHA256) | Signing and verifying intent and cart mandates over canonical JSON; constant-time comparison |
+| Money handling | Python `decimal.Decimal` | Exact amount conversion in the protocol adapters, so round-trips never drift by a cent |
+| Numerics | NumPy | Synthetic world generation, behavioural features, latency percentiles |
+| Machine learning | scikit-learn `GradientBoostingClassifier` | Layer 3 `RiskModel` (card-era and in-scope behavioural models) |
+| Web API | FastAPI | `POST /v1/{session,order,chain}/authorize` service in `agentproof/service.py` |
+| ASGI server | Uvicorn | Running the service locally (`make serve`) |
+| HTTP client | httpx | FastAPI `TestClient` in the HTTP tests |
+| Reporting | Python `html`, `json` | `results/results.json` and a self-contained `results/report.html` |
+| Testing | pytest | 13 tests: signatures, replay, agent binding, cumulative spend, round-trips, cross-protocol agreement, HTTP |
+| Packaging | setuptools, `pyproject.toml`, Make | Editable install with a `dev` extra; `make test`, `make eval`, `make serve` |
+| CI and supply chain | GitHub Actions, Dependabot | Tests on Python 3.11, 3.12 and 3.13; weekly dependency and action updates |
+
 ## Why this exists
 
 In June 2026 Adyen launched Adyen Agentic: a product feed, a cart orchestration layer, and a payments and fraud layer for agent-led transactions that must work across competing protocols. Adyen has publicly rated agentic commerce maturity at about 0.5 out of 5 and named catalog normalisation, fraud liability and protocol fragmentation as the main barriers. Agentproof works on two of those three: **fraud liability** (who authorised this?) and **fragmentation** (does the same purchase get the same decision on every rail?).
